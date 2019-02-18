@@ -3,6 +3,8 @@
   <!-- https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Context_Parameters -->
   <!-- https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html -->
   
+  <Property name="eldon.property" value="test" type="java.lang.String"/>
+   
   <Property name="spring.config.name" value="demo" type="java.lang.String"/>
    
    <!-- 
