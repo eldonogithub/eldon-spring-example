@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context privileged="true">
+  <!-- https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Context_Parameters -->
+  <!-- https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html -->
+  
+  <Property name="spring.config.name" value="demo" type="java.lang.String"/>
+   
+   <!-- 
+   If spring.config.location contains directories (as opposed to files), they should 
+   end in / (and, at runtime, be appended with the names generated from spring.config.name before being loaded, 
+   including profile-specific file names). Files specified in spring.config.location are used as-is, 
+   with no support for profile-specific variants, and are overridden by any profile-specific properties.
+    
+   Alternatively, when custom config locations are configured by using spring.config.additional-location, 
+   they are used in addition to the default locations. Additional locations are searched before the default 
+   locations.
+   -->
+
+  <Property name="spring.config.additional-location" value="file:/home/eldon/external/" type="java.lang.String"/>
+  
+  <Environment name="SPRING_CONFIG_ADDITIONALLOCATION" value="file:/home/eldon/external/" type="java.lang.Integer"/>
+</Context>

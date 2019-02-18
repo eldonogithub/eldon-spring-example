@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+    <encoder>
+      <!-- <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) [%-40.40logger{10}]:%F:%L - %msg%n</pattern>-->
+      <pattern>%d{HH:mm:ss.SSS} %-5level [%-40.40logger{10}]:%F:%L - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender level="DEBUG" name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/gs-rest-service.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>logs/gs-rest-service.%d{yyyyMMdd}</fileNamePattern>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level [%-40.40logger{10}] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Set the application logs to be at DEBUG -->
+  <logger name="com.example.demo" level="DEBUG"/>
+
+  <!-- Set the spring WS messages to be traced -->
+  <logger name="org.springframework.ws.server.MessageTracing" level="TRACE"/>
+
+
+  <!-- Everything else is logged at WARN -->
+  <root level="WARN">
+    <appender-ref ref="ROLLING"/>
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>
