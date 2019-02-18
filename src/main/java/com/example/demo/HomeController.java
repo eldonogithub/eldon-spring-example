@@ -33,4 +33,10 @@ public class HomeController {
 		
 		return data;
 	}
+	
+	@RequestMapping("/boom")
+	public void boom() throws Exception {
+		throw new Exception();
+	}
+
 }
