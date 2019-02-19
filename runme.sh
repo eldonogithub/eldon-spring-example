@@ -137,5 +137,5 @@ if [[ ! -e "$propertiesFile" ]]; then
 #  propertyOpt="--spring.config.location=file:${propertiesFile}"
   
 fi
-serverPort="--server.port=9700"
+# serverPort="--server.port=9700"
 mvn spring-boot:${command} -Dspring-boot.run.arguments="${propertyOpt:+${propertyOpt},}${serverPort:+${serverPort},}--spring.jackson.serialization.indent_output=true${propertyOpt:+,${propertyOpt}}"

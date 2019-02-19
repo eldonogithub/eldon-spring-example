@@ -98,8 +98,7 @@ public class Application extends SpringBootServletInitializer {
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		log.debug("Initializing Tomcat embedded container factory");
-		EmbeddedServletContainerFactory factory = new EmbeddedServletContainerFactory();
-	    factory.setPort(9000);
+            EmbeddedServletContainerFactory factory = new EmbeddedServletContainerFactory();
 	    factory.setSessionTimeout(10, TimeUnit.MINUTES);
 	    return factory;
 	}
@@ -120,7 +119,6 @@ public class Application extends SpringBootServletInitializer {
 	                            public void customize(Context context) {
 	                            	log.debug("customizing context");
 	                            }
-
 	                        });
 	            }
 	            else {
